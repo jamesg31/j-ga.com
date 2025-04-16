@@ -50,10 +50,7 @@ function navigateToPath(path) {
   }
 
   if (path === "/") {
-    currentPath = "/";
-    currentDir = fileSystem["/"];
-    updatePrompt();
-    return true;
+    return false;
   }
 
   if (path.startsWith("~/")) {
