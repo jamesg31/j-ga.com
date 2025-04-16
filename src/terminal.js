@@ -427,6 +427,22 @@ function executeCommand(cmd) {
   updateCursorPosition();
 }
 
+function updateLastLogin() {
+  const now = new Date();
+  const lastLogin = localStorage.getItem("lastLogin");
+  localStorage.setItem("lastLogin", now.toISOString());
+
+  const lastLoginElement = document.getElementById("last-login");
+  if (lastLoginElement) {
+    if (lastLogin) {
+      const lastLoginDate = new Date(lastLogin);
+      lastLoginElement.textContent = `Last login: ${lastLoginDate.toLocaleString()} from 192.168.1.100`;
+    } else {
+      lastLoginElement.textContent = `Last login: ${now.toLocaleString()} from 192.168.1.100`;
+    }
+  }
+}
+
 commandInput.addEventListener("input", updateCursorPosition);
 
 window.addEventListener("load", () => {
@@ -449,3 +465,5 @@ commandInput.addEventListener("keydown", handleTabAutocomplete);
 document.addEventListener("click", () => {
   commandInput.focus();
 });
+
+document.addEventListener("DOMContentLoaded", updateLastLogin);
