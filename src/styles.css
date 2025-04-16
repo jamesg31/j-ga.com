@@ -1,0 +1,81 @@
+body {
+  background-color: black;
+  min-height: 100%;
+  font-family: monospace;
+  white-space: pre;
+  color: #00ff00;
+  font-size: 12px;
+  line-height: 0;
+  margin: 10px;
+}
+
+pre {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+a {
+  color: #00ff00;
+}
+
+.command-line {
+  display: flex;
+  line-height: 1.2;
+  position: relative;
+}
+
+.prompt {
+  color: #00ff00;
+}
+
+#command-input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 12px;
+  outline: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  caret-color: transparent; /* Hide the default cursor */
+}
+
+#command-input::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 15px;
+  background-color: #00ff00;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 15px;
+  background-color: #00ff00;
+  animation: blink 1s step-end infinite;
+  pointer-events: none;
+}
+
+.output-line {
+  white-space: pre-wrap;
+  line-height: 1.2;
+}
